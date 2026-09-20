@@ -34,7 +34,7 @@ const axiosInstance: AxiosInstance = axios.create({
 // 请求拦截器(多个 后进先出)
 axiosInstance.interceptors.request.use(
   (config: InternalAxiosRequestConfig): InternalAxiosRequestConfig => {
-    console.log(`[Request] ${config.method?.toUpperCase()} ${config.url}`);
+    console.log(`[Request] ${config.method?.toUpperCase()} ${config.url}`)
     updateLoading(1)
 
     const token = localStorage.getItem('token')
@@ -53,7 +53,7 @@ axiosInstance.interceptors.request.use(
 // 响应拦截器(多个 先进先出)
 axiosInstance.interceptors.response.use(
   (response: AxiosResponse): AxiosResponse => {
-    console.log(`[Response] ${response.config.url}`, response.data);
+    console.log(`[Response] ${response.config.url}`, response.data)
 
     updateLoading(-1)
     // 统一处理业务错误（code !== 200）
