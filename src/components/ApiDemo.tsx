@@ -40,20 +40,20 @@ function ApiDemo() {
 
   return (
     <>
-      <button onClick={() => fetchUser('1')} disabled={loading} style={{ marginBottom: '20px' }}>
-        get User
-      </button>
+      <h3>
+        Current User: <span>{user?.name}</span>
+      </h3>
       {loading && <p style={{ color: 'blue' }}>Loading...</p>}
       {!loading && user && (
         <div style={{ marginBottom: '20px' }}>
-          <h2>User Details</h2>
-          <p>Name: {user.name}</p>
+          <i>User Details:</i>
           <p>Email: {user.email}</p>
           <p>Phone: {user.phone}</p>
+          <p>Status: {user.status}</p>
         </div>
       )}
       <div style={{ marginBottom: '20px' }}>
-        <h2>Users API</h2>
+        <h2>Users Operations</h2>
         <button onClick={fetchUsers} disabled={loading} style={{ marginRight: '10px' }}>
           Fetch Users
         </button>
@@ -74,8 +74,8 @@ function ApiDemo() {
         </button>
         <ul>
           {users.map((u) => (
-            <li key={u.id}>
-              {u.name} - {u.email}
+            <li onClick={() => fetchUser(u.id)} key={u.id}>
+              {u.name} - {u.status}
             </li>
           ))}
         </ul>
