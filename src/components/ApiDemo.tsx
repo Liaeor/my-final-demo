@@ -82,7 +82,7 @@ function ApiDemo() {
       </div>
 
       <div style={{ marginBottom: '20px' }}>
-        <h2>Products API</h2>
+        <h2>Products Operations</h2>
         <button onClick={fetchProducts} disabled={loading}>
           Fetch Products
         </button>
